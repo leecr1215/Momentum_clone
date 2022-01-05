@@ -1,11 +1,13 @@
 const h1 = document.querySelector("div.hello:first-child h1");
 
 function handleTitleClick() {
-  if (h1.className === "active") {
-    h1.className = "";
-  } else {
-    h1.className = "active";
-  }
+  //   const clickedClass = "clicked";
+  //   if (h1.classList.contains(clickedClass)) {
+  //     h1.classList.remove(clickedClass);
+  //   } else {
+  //     h1.classList.add(clickedClass);
+  //   }
+  h1.classList.toggle("clicked"); // 위 다섯줄과 같은 의미
 }
 
 h1.addEventListener("click", handleTitleClick);
