@@ -4,7 +4,7 @@ const toDoList = document.getElementById("todo-list");
 
 const TODOS_KEY = "todos";
 
-const toDos = [];
+let toDos = [];
 
 function saveToDos() {
   // JSON.stringify() : 뭐든지 string 형태로 바꿔줌
@@ -35,6 +35,7 @@ function handleToDoSubmit(event) {
   toDoInput.value = "";
   toDos.push(newTodo);
   paintToDo(newTodo);
+  saveToDos();
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
@@ -42,6 +43,6 @@ toDoForm.addEventListener("submit", handleToDoSubmit);
 const savedToDos = localStorage.getItem(TODOS_KEY);
 if (savedToDos !== null) {
   const pasedToDos = JSON.parse(savedToDos);
-  pasedToDos.forEach((item) => console.log(item));
-} else {
+  toDos = pasedToDos;
+  pasedToDos.forEach(paintToDo);
 }
